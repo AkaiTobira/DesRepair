@@ -29,6 +29,7 @@ var grampling_cd            = 1.5
 
 var WALL_HOLDER_ENABLED     = true
 var wall_holding            = false
+var once_jumped             = true
 
 
 func _ready():
@@ -121,20 +122,26 @@ func _animate():
 func _wall_holder(delta):
 	if not WALL_HOLDER_ENABLED: return
 	
-	if Input.is_action_just_pressed("wall_hold"): wall_holding = true
+	if Input.is_action_just_pressed("wall_hold"): 
+		wall_holding = true
+		once_jumped  = true
 	
 	if Input.is_action_pressed("wall_hold"):
 		wall_holding = true
 		var distance = 100
 		var close_wall = test_move( get_transform(), Vector2( -distance, 0 ) * delta ) or test_move( get_transform(), Vector2( distance, 0 ) * delta )
-		if not close_wall : wall_holding = false
-	else: wall_holding = false
-	pass
+		if not close_wall : 
+			wall_holding = false
+			once_jumped  = true
+	else: 
+		wall_holding = false
+		once_jumped = true
 
 func _jump():
 	
-	if Input.is_action_pressed("ui_up") and wall_holding:
-		motion.y -= SPEED_JUMP
+	if Input.is_action_pressed("ui_up") and wall_holding and once_jumped:
+		motion.y -= SPEED_JUMP * 2
+		once_jumped = false
 	
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		motion.y -= SPEED_JUMP 

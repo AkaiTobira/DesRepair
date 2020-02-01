@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var doors_and_keys = { }
 
 func _ready():
@@ -12,7 +11,6 @@ func _ready():
 			doors_and_keys[ child.key_id][ "keys" ].append( child )
 			doors_and_keys[child.key_id][ "is_open"] = false
 		if "Door" in child.get_groups():
-			print( "NOHtinG" )
 			if not doors_and_keys.has( child.door_id ): doors_and_keys[ child.door_id ] = {}
 			if not doors_and_keys[ child.door_id ].has( "door" ) : doors_and_keys[ child.door_id][ "door" ] = []
 			doors_and_keys[ child.door_id][ "door" ].append( child )

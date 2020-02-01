@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PlayerAnimation.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Environment/Bez nazwy.png" type="Texture" id=3]
-[ext_resource path="res://Environment/Bez nazwy hook.png" type="Texture" id=4]
+[ext_resource path="res://Environment/hook_line.png" type="Texture" id=3]
+[ext_resource path="res://Environment/hook.png" type="Texture" id=4]
 [ext_resource path="res://Environment/robot_hand.png" type="Texture" id=5]
 [ext_resource path="res://Environment/robot_grappling_hook.png" type="Texture" id=6]
 [ext_resource path="res://Environment/robot.png" type="Texture" id=7]
@@ -332,7 +332,7 @@ collision_mask = 514
 [node name="Line2D" type="Line2D" parent="Skills/GraplingHook"]
 points = PoolVector2Array( 0, 0, 0, 0 )
 texture = ExtResource( 3 )
-texture_mode = 1056964608
+texture_mode = 1
 
 [node name="Hook" type="Sprite" parent="Skills/GraplingHook/Line2D"]
 position = Vector2( 0, -15 )
