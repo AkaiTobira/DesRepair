@@ -11,7 +11,9 @@ const WORLD_LIMIT = 3000;
 
 var motion = Vector2(0,0)
 
-var lives = 3
+
+var max_health = 100
+var current_health = 100
 var score = 0
 
 var GRAPLING_HOOK_ENABLED   = true #for test
@@ -38,6 +40,15 @@ func _ready():
 	$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
 	$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
 	
+	current_health = max_health
+	
+
+func OnHit(damage):
+	current_health -= damage
+	healthBar.get_node("healthBar").value  = int((float (current_health) / max_health) * 100)
+
+	
+
 func activate_GramplingHook():
 	
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) :
@@ -168,6 +179,7 @@ func heal_cost( premium ):
 func _hurt():
 	position.y -= -1
 	motion.y -= SPEED_JUMP 
-	lives -= 1
-	if lives < 0:
-			_endgame()
+	OnHit(20)
+	if current_health < 0:
+		$"/root/healthBar".get_node("healthBar").visible = false
+		_endgame()
