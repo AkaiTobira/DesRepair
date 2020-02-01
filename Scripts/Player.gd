@@ -20,6 +20,7 @@ var grapling_lenght         = 700
 var grapling_lenght_current = 0
 var grapling_speed          = 1500
 var grapling_direction      = Vector2(0,0)
+var grapling_hit_point      = Vector2(0,0)
 
 func _grapling_hook(delta):
 	if not GRAPLING_HOOK_ENABLED: return
@@ -47,24 +48,23 @@ func _grapling_hook(delta):
 		if $Skills/GraplingHook.is_colliding() :
 			print( "Hooked", $Skills/GraplingHook.get_collider() )
 			$Skills/GraplingHook/Line2D/Hook.visible = false
-			#if $Skills/GraplingHook.get_collider().is_class("TileMap"):return
-			
-			
+			grapling_hit_point =  $Skills/GraplingHook.get_collision_point()
 			grapling_hooked = true
 			
 	if grapling_hooked: 
 		#$Skills/GraplingHook/Line2D.visible = false
-		motion = grapling_direction * 600
-		grapling_lenght_current = max( grapling_lenght_current - 600 * delta, 0 )
+		motion = grapling_direction * SPEED
+		grapling_lenght_current = max( grapling_lenght_current - SPEED * delta, 0 )
 		var point     = grapling_direction * grapling_lenght_current
 		$Skills/GraplingHook.cast_to = point 
 		$Skills/GraplingHook/Line2D.points[1] = point
-		if test_move( get_transform(), motion * delta ): 
+		
+		if test_move( get_transform(), motion * delta ):# and grapling_hit_point.distance_squared_to(position) < 6000: 
 			grapling_hooked  = false
 			grapling_lenght_current = 0
 			grapling_shooted = false
 			$Skills/GraplingHook/Line2D.visible = false
-		if not test_move( get_transform(), motion * 600 * delta ): 
+		if not test_move( get_transform(), motion * SPEED * delta ): 
 			grapling_hooked  = false
 			grapling_lenght_current = 0
 			grapling_shooted = false
