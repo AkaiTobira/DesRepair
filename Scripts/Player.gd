@@ -74,8 +74,6 @@ func _grapling_hook(delta):
 	activate_GramplingHook()
 	process_targeting_GramplingHook(delta)
 	process_pull_GramplingHook(delta)
-			
-
 
 func _physics_process(delta):
 	_gravity()
@@ -95,8 +93,10 @@ func _jump():
 func _movement():
 
 	if Input.is_action_pressed("left"):
+		play_anim_if_not_played("MoveLeft")
 		motion.x = -SPEED
 	elif Input.is_action_pressed("right"):
+		play_anim_if_not_played("MoveRight")
 		motion.x = SPEED
 	else:
 		motion.x = 0
@@ -116,6 +116,10 @@ func _endgame():
 
 func add_to_score(amount):
 	score += amount
+
+func play_anim_if_not_played(anim_name):
+	if $AnimationPlayer.current_animation == anim_name : return
+	$AnimationPlayer.play(anim_name)
 
 func _hurt():
 	position.y -= -1
