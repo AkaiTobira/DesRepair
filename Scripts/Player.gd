@@ -12,18 +12,20 @@ const WORLD_LIMIT = 3000;
 var motion = Vector2(0,0)
 
 var lives = 3
+var score = 0
 
 var GRAPLING_HOOK_ENABLED   = true #for test
 var grapling_shooted        = false
 var grapling_hooked         = false
-var grapling_lenght         = 700
+var grapling_lenght         = 750
 var grapling_lenght_current = 0
 var grapling_speed          = 1500
 var grapling_direction      = Vector2(0,0)
 var grapling_hit_point      = Vector2(0,0)
 
-func _grapling_hook(delta):
-	if not GRAPLING_HOOK_ENABLED: return
+
+
+func activate_GramplingHook():
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not (  grapling_shooted or  grapling_hooked) : 
 		$Skills/GraplingHook/Line2D.visible = true
 		$Skills/GraplingHook/Line2D/Hook.visible = true
@@ -31,7 +33,9 @@ func _grapling_hook(delta):
 		var origin_position = get_global_transform_with_canvas().origin
 		grapling_direction  = (target_point  - origin_position).normalized()
 		grapling_shooted    = true
-	
+
+
+func process_targeting_GramplingHook(delta):
 	if grapling_shooted and not grapling_hooked:
 		grapling_lenght_current = min( grapling_lenght_current + grapling_speed * delta, grapling_lenght )
 		var point     = grapling_direction * grapling_lenght_current
@@ -46,30 +50,34 @@ func _grapling_hook(delta):
 			$Skills/GraplingHook/Line2D.visible = false
 
 		if $Skills/GraplingHook.is_colliding() :
-			print( "Hooked", $Skills/GraplingHook.get_collider() )
 			$Skills/GraplingHook/Line2D/Hook.visible = false
 			grapling_hit_point =  $Skills/GraplingHook.get_collision_point()
 			grapling_hooked = true
-			
+
+func process_pull_GramplingHook(delta):
 	if grapling_hooked: 
-		#$Skills/GraplingHook/Line2D.visible = false
 		motion = grapling_direction * SPEED
 		grapling_lenght_current = max( grapling_lenght_current - SPEED * delta, 0 )
 		var point     = grapling_direction * grapling_lenght_current
 		$Skills/GraplingHook.cast_to = point 
 		$Skills/GraplingHook/Line2D.points[1] = point
 		
-		if test_move( get_transform(), motion * delta ):# and grapling_hit_point.distance_squared_to(position) < 6000: 
+		var hit_the_wall     = test_move( get_transform(), motion * delta )
+		var going_into_space = not test_move( get_transform(), motion * SPEED  * delta )
+		
+		if hit_the_wall or going_into_space:
 			grapling_hooked  = false
 			grapling_lenght_current = 0
 			grapling_shooted = false
 			$Skills/GraplingHook/Line2D.visible = false
-		if not test_move( get_transform(), motion * SPEED * delta ): 
-			grapling_hooked  = false
-			grapling_lenght_current = 0
-			grapling_shooted = false
-			$Skills/GraplingHook/Line2D.visible = false
-	
+		
+
+func _grapling_hook(delta):
+	if not GRAPLING_HOOK_ENABLED: return
+	activate_GramplingHook()
+	process_targeting_GramplingHook(delta)
+	process_pull_GramplingHook(delta)
+			
 
 
 func _physics_process(delta):
@@ -78,7 +86,6 @@ func _physics_process(delta):
 	_jump()
 	_grapling_hook(delta)
 	move_and_slide(motion, UP)
-
 
 func _animate():
 	emit_signal("_animate", motion)
@@ -106,11 +113,13 @@ func _gravity():
 		motion.y = 100
 	else:
 		motion.y += GRAVITY/2 if grapling_shooted else GRAVITY
-		
+
 func _endgame():
 	get_tree().change_scene("res://Scenes/EndGame.tscn")
-	
-	
+
+func add_to_score(amount):
+	score += amount
+
 func _hurt():
 	position.y -= -1
 	motion.y -= SPEED_JUMP 

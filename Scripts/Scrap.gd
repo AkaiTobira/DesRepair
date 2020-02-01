@@ -1,8 +1,6 @@
 extends Area2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var VALUE = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,5 +9,7 @@ func _ready():
 
 func _on_Scrap_body_entered(body):
 	if "player" in body.get_groups():
-		print( "Smetihs")
+		body.add_to_score(VALUE)
+		#$AnimationPlayer.play( play deasapear animation )
+		call_deferred("queue_free" ) 
 	pass # Replace with function body.
