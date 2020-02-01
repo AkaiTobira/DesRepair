@@ -22,20 +22,25 @@ var grapling_lenght_current = 0
 var grapling_speed          = 1500
 var grapling_direction      = Vector2(0,0)
 var grapling_hit_point      = Vector2(0,0)
+var grampling_cd_timer      = 0
+var grampling_cd            = 1.5
+
+var WALL_HOLDER_ENABLED     = true
+var wall_holding            = false
+
 
 func _ready():
 	var tilemap_rect = get_parent().get_node("TileMap").get_used_rect()
 	var tilemap_cell_size = get_parent().get_node("TileMap").cell_size
 	
-	$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
+	$Camera2D.limit_left = (tilemap_rect.position.x  + 3) * tilemap_cell_size.x
 	$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
 	$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
 	$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
 	
-	 
-
 func activate_GramplingHook():
-	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) : 
+	
+	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) :
 		$Skills/GraplingHook/Line2D.visible      = true
 		$Skills/GraplingHook/Line2D/Hook.visible = true
 		var target_point    = get_viewport().get_mouse_position()
@@ -47,8 +52,8 @@ func process_targeting_GramplingHook(delta):
 	if grapling_shooted and not grapling_hooked:
 		grapling_lenght_current = min( grapling_lenght_current + grapling_speed * delta, grapling_lenght )
 		var point     = grapling_direction * grapling_lenght_current
-		$Skills/GraplingHook.cast_to = point 
-		$Skills/GraplingHook/Line2D.points[1] = point
+		$Skills/GraplingHook.cast_to              = point 
+		$Skills/GraplingHook/Line2D.points[1]     = point
 		$Skills/GraplingHook/Line2D/Hook.position = point
 		
 		if grapling_lenght_current == grapling_lenght : 
@@ -78,10 +83,14 @@ func process_pull_GramplingHook(delta):
 			grapling_lenght_current = 0
 			grapling_shooted = false
 			$Skills/GraplingHook/Line2D.visible = false
-		
+			grampling_cd_timer = grampling_cd
 
 func _grapling_hook(delta):
 	if not GRAPLING_HOOK_ENABLED: return
+	grampling_cd_timer -= delta
+	
+	if grampling_cd_timer > 0 : return
+	
 	activate_GramplingHook()
 	process_targeting_GramplingHook(delta)
 	process_pull_GramplingHook(delta)
@@ -91,17 +100,36 @@ func _physics_process(delta):
 	_movement()
 	_jump()
 	_grapling_hook(delta)
+	_wall_holder(delta)
 	move_and_slide(motion, UP)
+
 
 func _animate():
 	emit_signal("_animate", motion)
 
+func _wall_holder(delta):
+	if not WALL_HOLDER_ENABLED: return
+	
+	if Input.is_action_just_pressed("wall_hold"): wall_holding = true
+	
+	if Input.is_action_pressed("wall_hold"):
+		wall_holding = true
+		var distance = 100
+		var close_wall = test_move( get_transform(), Vector2( -distance, 0 ) * delta ) or test_move( get_transform(), Vector2( distance, 0 ) * delta )
+		if not close_wall : wall_holding = false
+	else: wall_holding = false
+	pass
 
 func _jump():
+	
+	if Input.is_action_pressed("ui_up") and wall_holding:
+		motion.y -= SPEED_JUMP
+	
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		motion.y -= SPEED_JUMP 
 
 func _movement():
+	if wall_holding: return
 
 	if Input.is_action_pressed("ui_left"):
 		play_anim_if_not_played("MoveLeft")
@@ -120,7 +148,8 @@ func _gravity():
 	elif is_on_ceiling():
 		motion.y = 100
 	else:
-		motion.y += GRAVITY/2 if grapling_shooted else GRAVITY
+		motion.y += GRAVITY/2 if grapling_shooted else  GRAVITY 
+		if wall_holding : motion.y = 80
 
 func _endgame():
 	get_tree().change_scene("res://Scenes/EndGame.tscn")
@@ -131,6 +160,10 @@ func add_to_score(amount):
 func play_anim_if_not_played(anim_name):
 	if $AnimationPlayer.current_animation == anim_name : return
 	$AnimationPlayer.play(anim_name)
+
+func heal_cost( premium ):
+	match( premium ):
+		"G" : GRAPLING_HOOK_ENABLED = true
 
 func _hurt():
 	position.y -= -1

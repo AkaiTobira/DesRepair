@@ -324,7 +324,7 @@ smoothing_enabled = true
 [node name="Skills" type="Node2D" parent="."]
 
 [node name="GraplingHook" type="RayCast2D" parent="Skills"]
-position = Vector2( -43, -55 )
+position = Vector2( 46, -55 )
 enabled = true
 cast_to = Vector2( 0, 1 )
 collision_mask = 514
@@ -340,23 +340,25 @@ rotation = -1.5708
 texture = ExtResource( 4 )
 
 [node name="Hand" type="Sprite" parent="."]
-position = Vector2( -20.6514, -3.98027 )
+position = Vector2( 24.3486, -5.98027 )
 scale = Vector2( 0.626223, 0.626223 )
 z_index = 1
 texture = ExtResource( 5 )
+flip_h = true
 
 [node name="Queins" type="Sprite" parent="."]
-position = Vector2( -51.9753, -13.4137 )
+position = Vector2( 54.0247, -13.4137 )
 texture = ExtResource( 6 )
+flip_h = true
 
 [node name="Torso" type="Sprite" parent="."]
 position = Vector2( 2, -5 )
 scale = Vector2( 0.626223, 0.626223 )
 texture = ExtResource( 7 )
+flip_h = true
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 2, 59 )
-rotation = 6.28319
 texture = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
