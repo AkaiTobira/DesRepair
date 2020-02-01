@@ -13,10 +13,31 @@ var motion = Vector2(0,0)
 
 var lives = 3
 
+var GRAPLING_HOOK_ENABLED = true #for test
+var grapling_lenght       = 600
+
+func _grapling_hook():
+	if not Input.is_mouse_button_pressed(BUTTON_RIGHT): return 
+	if not GRAPLING_HOOK_ENABLED: return
+	
+	var target_point = get_viewport().get_mouse_position()
+	var origin_position = get_global_transform_with_canvas().origin
+	var direction = (target_point  - origin_position).normalized()
+	
+	
+	#$Skills/Sprite.position  = position - position
+	#$Skills/Sprite2.position = event.position - position
+	
+	var point     = direction * grapling_lenght
+	
+	$Skills/GraplingHook.cast_to = point 
+	if $Skills/GraplingHook.is_colliding() : print( direction, point )
+
 func _physics_process(delta):
 	_gravity()
 	_movement()
 	_jump()
+	_grapling_hook()
 	move_and_slide(motion, UP)
 
 
