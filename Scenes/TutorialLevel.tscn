@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Platforms.tres" type="TileSet" id=1]
 [ext_resource path="res://Root.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Scrap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Key.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/InfoScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/broken_robot.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 277.985, 226.764 )
@@ -62,4 +63,7 @@ information = "Enabling Fix protocole ( press E to fix  ). WARNING Procedure is 
 
 [node name="StartPoint" type="Node2D" parent="."]
 position = Vector2( 197.623, -215.552 )
+
+[node name="broken_robot" parent="." instance=ExtResource( 7 )]
+position = Vector2( 4654.12, -600.574 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -19,6 +19,10 @@ config/name="Lunar"
 run/main_scene="res://Scenes/LVL1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GUI="*res://Scenes/GUI.tscn"
+
 [input]
 
 ui_left={

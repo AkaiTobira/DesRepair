@@ -5,10 +5,6 @@ export var premium = ""
 var player
 export var key_id = -1
 
-func _ready():
-	pass # Replace with function body.
-
-
 
 func on_heal():
 #	player.heal_cost( premium )

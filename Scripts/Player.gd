@@ -35,7 +35,7 @@ var once_jumped             = true
 func _ready():
 	var tilemap_rect = get_parent().get_node("TileMap").get_used_rect()
 	var tilemap_cell_size = get_parent().get_node("TileMap").cell_size
-	
+	OnHit(0)
 	#$Camera2D.limit_left = (tilemap_rect.position.x  + 3) * tilemap_cell_size.x
 	#$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
 	#$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
@@ -46,6 +46,7 @@ func _ready():
 
 func OnHit(damage):
 	current_health -= damage
+	GUI.get_node("TextureProgress").value = int((float (current_health) / max_health) * 100)
 	#healthBar.get_node("healthBar").value  = int((float (current_health) / max_health) * 100)
 
 	
@@ -98,6 +99,9 @@ func process_pull_GramplingHook(delta):
 			$Skills/GraplingHook/Line2D.visible = false
 			grampling_cd_timer = grampling_cd
 
+func _process(delta): 
+	GUI.get_node("Label").text = "x " + str(score)
+
 func _grapling_hook(delta):
 	if not GRAPLING_HOOK_ENABLED: return
 	grampling_cd_timer -= delta
@@ -137,9 +141,14 @@ func _wall_holder(delta):
 		if close_wall_right: play_anim_if_not_played("HoldRight")
 		
 		if not (close_wall_left or close_wall_right) : 
+		
+			if $AnimationPlayer.current_animation == "HoldLeft":  $AnimationPlayer.play("IdleLeft")
+			if $AnimationPlayer.current_animation == "HoldRight": $AnimationPlayer.play("IdleRight")
 			wall_holding = false
 			once_jumped  = true
 	else: 
+		if $AnimationPlayer.current_animation == "HoldLeft":  $AnimationPlayer.play("IdleLeft")
+		if $AnimationPlayer.current_animation == "HoldRight": $AnimationPlayer.play("IdleRight")
 		wall_holding = false
 		once_jumped = true
 
@@ -194,5 +203,5 @@ func _hurt():
 	motion.y -= SPEED_JUMP 
 	OnHit(20)
 	if current_health < 0:
-		$"/root/healthBar".get_node("healthBar").visible = false
+		GUI.get_node("TextureProgress").visible = false
 		_endgame()

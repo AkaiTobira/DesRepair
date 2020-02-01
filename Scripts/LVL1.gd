@@ -8,11 +8,8 @@ var levels = {
 
 func load_new_world( next_level, p_position ):
 	call_deferred( "add_child", levels[next_level].instance() )
-	$Player.position = p_position
+	$Player.position = $TileMap/StartPoint.position
+#	$Player.position = p_position
 
 func _ready():
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
