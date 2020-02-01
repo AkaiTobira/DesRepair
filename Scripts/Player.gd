@@ -23,17 +23,14 @@ var grapling_speed          = 1500
 var grapling_direction      = Vector2(0,0)
 var grapling_hit_point      = Vector2(0,0)
 
-
-
 func activate_GramplingHook():
-	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not (  grapling_shooted or  grapling_hooked) : 
-		$Skills/GraplingHook/Line2D.visible = true
+	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) : 
+		$Skills/GraplingHook/Line2D.visible      = true
 		$Skills/GraplingHook/Line2D/Hook.visible = true
 		var target_point    = get_viewport().get_mouse_position()
 		var origin_position = get_global_transform_with_canvas().origin
 		grapling_direction  = (target_point  - origin_position).normalized()
 		grapling_shooted    = true
-
 
 func process_targeting_GramplingHook(delta):
 	if grapling_shooted and not grapling_hooked:
@@ -63,7 +60,7 @@ func process_pull_GramplingHook(delta):
 		$Skills/GraplingHook/Line2D.points[1] = point
 		
 		var hit_the_wall     = test_move( get_transform(), motion * delta )
-		var going_into_space = not test_move( get_transform(), motion * SPEED  * delta )
+		var going_into_space = false#= #not test_move( get_transform(), motion * SPEED  * delta )
 		
 		if hit_the_wall or going_into_space:
 			grapling_hooked  = false

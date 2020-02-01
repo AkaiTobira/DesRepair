@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PlayerAnimation.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environment/Bez nazwy.png" type="Texture" id=3]
 [ext_resource path="res://Environment/Bez nazwy hook.png" type="Texture" id=4]
+[ext_resource path="res://Environment/Ballo.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 47.1277, 47.3642 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 37.7378
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
@@ -24,6 +25,7 @@ SPEED_JUMP = 2000
 shape = SubResource( 1 )
 
 [node name="PlayerAnimation" parent="." instance=ExtResource( 2 )]
+visible = false
 scale = Vector2( 1.5, 1.5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -37,7 +39,7 @@ smoothing_enabled = true
 [node name="GraplingHook" type="RayCast2D" parent="Skills"]
 position = Vector2( 0, -50 )
 enabled = true
-cast_to = Vector2( 0, 2000 )
+cast_to = Vector2( 0, 1 )
 collision_mask = 514
 
 [node name="Line2D" type="Line2D" parent="Skills/GraplingHook"]
@@ -49,4 +51,9 @@ texture_mode = 1
 [node name="Hook" type="Sprite" parent="Skills/GraplingHook/Line2D"]
 rotation = -1.5708
 texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 3.32389, 1.43345 )
+scale = Vector2( 0.626223, 0.626223 )
+texture = ExtResource( 5 )
 [connection signal="_animate" from="." to="PlayerAnimation" method="_on_Player__animate"]
