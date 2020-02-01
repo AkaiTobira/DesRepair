@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/LVL1.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/LVL1.gd" type="Script" id=1]
 [ext_resource path="res://Environment/bgr_desert.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/TutorialLevel.tscn" type="PackedScene" id=4]
