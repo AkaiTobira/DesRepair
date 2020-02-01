@@ -23,6 +23,17 @@ var grapling_speed          = 1500
 var grapling_direction      = Vector2(0,0)
 var grapling_hit_point      = Vector2(0,0)
 
+func _ready():
+	var tilemap_rect = get_parent().get_node("TileMap").get_used_rect()
+	var tilemap_cell_size = get_parent().get_node("TileMap").cell_size
+	
+	$Camera2D.limit_left = tilemap_rect.position.x * tilemap_cell_size.x
+	$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
+	$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
+	$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
+	
+	 
+
 func activate_GramplingHook():
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) : 
 		$Skills/GraplingHook/Line2D.visible      = true
