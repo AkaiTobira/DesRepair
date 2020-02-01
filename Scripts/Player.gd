@@ -60,7 +60,7 @@ func process_pull_GramplingHook(delta):
 		$Skills/GraplingHook/Line2D.points[1] = point
 		
 		var hit_the_wall     = test_move( get_transform(), motion * delta )
-		var going_into_space = false#= #not test_move( get_transform(), motion * SPEED  * delta )
+		var going_into_space = not test_move( get_transform(), motion * SPEED  * delta )
 		
 		if hit_the_wall or going_into_space:
 			grapling_hooked  = false
@@ -87,15 +87,15 @@ func _animate():
 
 
 func _jump():
-	if Input.is_action_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("ui_up") and is_on_floor():
 		motion.y -= SPEED_JUMP 
 
 func _movement():
 
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("ui_left"):
 		play_anim_if_not_played("MoveLeft")
 		motion.x = -SPEED
-	elif Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("ui_right"):
 		play_anim_if_not_played("MoveRight")
 		motion.x = SPEED
 	else:
