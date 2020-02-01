@@ -13,31 +13,70 @@ var motion = Vector2(0,0)
 
 var lives = 3
 
-var GRAPLING_HOOK_ENABLED = true #for test
-var grapling_lenght       = 600
+var GRAPLING_HOOK_ENABLED   = true #for test
+var grapling_shooted        = false
+var grapling_hooked         = false
+var grapling_lenght         = 700
+var grapling_lenght_current = 0
+var grapling_speed          = 1500
+var grapling_direction      = Vector2(0,0)
 
-func _grapling_hook():
-	if not Input.is_mouse_button_pressed(BUTTON_RIGHT): return 
+func _grapling_hook(delta):
 	if not GRAPLING_HOOK_ENABLED: return
+	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not (  grapling_shooted or  grapling_hooked) : 
+		$Skills/GraplingHook/Line2D.visible = true
+		$Skills/GraplingHook/Line2D/Hook.visible = true
+		var target_point    = get_viewport().get_mouse_position()
+		var origin_position = get_global_transform_with_canvas().origin
+		grapling_direction  = (target_point  - origin_position).normalized()
+		grapling_shooted    = true
 	
-	var target_point = get_viewport().get_mouse_position()
-	var origin_position = get_global_transform_with_canvas().origin
-	var direction = (target_point  - origin_position).normalized()
+	if grapling_shooted and not grapling_hooked:
+		grapling_lenght_current = min( grapling_lenght_current + grapling_speed * delta, grapling_lenght )
+		var point     = grapling_direction * grapling_lenght_current
+		$Skills/GraplingHook.cast_to = point 
+		$Skills/GraplingHook/Line2D.points[1] = point
+		$Skills/GraplingHook/Line2D/Hook.position = point
+		
+		if grapling_lenght_current == grapling_lenght : 
+			grapling_shooted        = false
+			grapling_lenght_current = 0
+			$Skills/GraplingHook.cast_to = Vector2(0,0)
+			$Skills/GraplingHook/Line2D.visible = false
+
+		if $Skills/GraplingHook.is_colliding() :
+			print( "Hooked", $Skills/GraplingHook.get_collider() )
+			$Skills/GraplingHook/Line2D/Hook.visible = false
+			#if $Skills/GraplingHook.get_collider().is_class("TileMap"):return
+			
+			
+			grapling_hooked = true
+			
+	if grapling_hooked: 
+		#$Skills/GraplingHook/Line2D.visible = false
+		motion = grapling_direction * 600
+		grapling_lenght_current = max( grapling_lenght_current - 600 * delta, 0 )
+		var point     = grapling_direction * grapling_lenght_current
+		$Skills/GraplingHook.cast_to = point 
+		$Skills/GraplingHook/Line2D.points[1] = point
+		if test_move( get_transform(), motion * delta ): 
+			grapling_hooked  = false
+			grapling_lenght_current = 0
+			grapling_shooted = false
+			$Skills/GraplingHook/Line2D.visible = false
+		if not test_move( get_transform(), motion * 600 * delta ): 
+			grapling_hooked  = false
+			grapling_lenght_current = 0
+			grapling_shooted = false
+			$Skills/GraplingHook/Line2D.visible = false
 	
-	
-	#$Skills/Sprite.position  = position - position
-	#$Skills/Sprite2.position = event.position - position
-	
-	var point     = direction * grapling_lenght
-	
-	$Skills/GraplingHook.cast_to = point 
-	if $Skills/GraplingHook.is_colliding() : print( direction, point )
+
 
 func _physics_process(delta):
 	_gravity()
 	_movement()
 	_jump()
-	_grapling_hook()
+	_grapling_hook(delta)
 	move_and_slide(motion, UP)
 
 
@@ -50,6 +89,7 @@ func _jump():
 		motion.y -= SPEED_JUMP 
 
 func _movement():
+
 	if Input.is_action_pressed("left"):
 		motion.x = -SPEED
 	elif Input.is_action_pressed("right"):
