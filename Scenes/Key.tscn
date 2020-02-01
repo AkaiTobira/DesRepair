@@ -51,6 +51,7 @@ position = Vector2( 4.44043, -30.39 )
 shape = SubResource( 1 )
 
 [node name="Buttons" type="Node2D" parent="."]
+visible = false
 
 [node name="Help" type="TextureButton" parent="Buttons"]
 self_modulate = Color( 0.121569, 1, 0.239216, 1 )

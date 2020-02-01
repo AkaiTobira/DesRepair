@@ -1,18 +1,18 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/broken_robot.gd" type="Script" id=1]
-[ext_resource path="res://Environment/broken_robot.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/InfoScreen.gd" type="Script" id=1]
+[ext_resource path="res://Environment/Terrain/mechanicalInfoScreen.png" type="Texture" id=2]
 [ext_resource path="res://Environment/Button_1.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 166.811, 65.3352 )
+extents = Vector2( 166.811, 117.953 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "migaj"
 length = 5.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Label3:modulate")
+tracks/0/path = NodePath("../Label3:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -34,7 +34,7 @@ loop = true
 [sub_resource type="Animation" id=5]
 length = 2.0
 
-[node name="broken_robot" type="Area2D"]
+[node name="infoScreen" type="Area2D"]
 position = Vector2( 160, 96 )
 script = ExtResource( 1 )
 
@@ -43,9 +43,18 @@ position = Vector2( -0.358491, 0.716972 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 1.36035, -17.5564 )
+position = Vector2( -0.79059, -46.9524 )
 shape = SubResource( 1 )
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -77.0
+margin_top = -91.0
+margin_right = 161.0
+margin_bottom = -22.0
+text = " Press to          Press to
+  destroy              read"
+autowrap = true
 
 [node name="Buttons" type="Node2D" parent="."]
 visible = false
@@ -95,15 +104,6 @@ margin_right = 80.2056
 margin_bottom = -37.2731
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "E"
-
-[node name="Label3" type="Label" parent="Buttons"]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = -77.0
-margin_top = -91.0
-margin_right = 78.0
-margin_bottom = -60.0
-text = " Press to          Press to
-     kill                 repair"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons"]
 autoplay = "migaj"

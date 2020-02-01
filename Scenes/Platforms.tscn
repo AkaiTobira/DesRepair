@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Environment/Terrain/ground_cake.png" type="Texture" id=1]
 [ext_resource path="res://Environment/Terrain/ground_cake_small.png" type="Texture" id=2]
+[ext_resource path="res://Environment/Terrain/Mechanic_geound_small.png" type="Texture" id=3]
+[ext_resource path="res://Environment/Terrain/Mechanic_geound_gate.png" type="Texture" id=4]
+[ext_resource path="res://Environment/Terrain/Mechanic_geound.png" type="Texture" id=5]
+[ext_resource path="res://Environment/Terrain/mechanicalTileset.png" type="Texture" id=6]
 
 [node name="Platforms" type="Node2D"]
 
 [node name="ground_cake" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 808, 456 )
 texture = ExtResource( 1 )
 
@@ -17,6 +22,7 @@ collision_mask = 515
 polygon = PoolVector2Array( -172, -44, 176, -44, 184, -40, 188, -32, 188, -20, 188, -16, 184, -8, 180, 0, 172, 12, 156, 32, -160, 44, -188, -16, -188, -28, -188, -36, -184, -40, -176, -44 )
 
 [node name="ground_cake_small" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 184, 432 )
 texture = ExtResource( 2 )
 
@@ -26,3 +32,97 @@ collision_mask = 515
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ground_cake_small/StaticBody2D"]
 polygon = PoolVector2Array( -92, -44, -84, -48, -16, -48, 88, -48, 96, -44, 100, -36, 100, -28, 100, -20, 72, 48, -76, 40, -96, -16, -100, -32 )
+
+[node name="machanicall_small" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 196.059, 272.222 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="machanicall_small"]
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="machanicall_small/StaticBody2D"]
+position = Vector2( -88.3008, 1.88678 )
+polygon = PoolVector2Array( -90.9102, -48.751, 124.559, -49.1284, 135.88, -41.2039, 139.276, -21.2042, 128.332, 1.05972, 106.446, 36.531, -71.6651, 47.0969, -81.4763, 29.3613, -98.0799, -11.0156, -102.231, -21.5815, -101.853, -34.0342, -98.8346, -43.0907 )
+
+[node name="machanicall_small2" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 326.623, 315.617 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="machanicall_small2"]
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="machanicall_small2/StaticBody2D"]
+position = Vector2( -88.3008, 1.88678 )
+polygon = PoolVector2Array( 8.42694, -21.2041, 18.2381, -29.5059, 157.482, -28.3738, 166.538, -24.9777, 169.934, -17.8079, 171.444, -0.0722656, 156.727, 24.4557, 6.91753, 25.5878, 5.78546, -5.7326 )
+
+[node name="machanicall_small4" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 326.623, 315.617 )
+texture = ExtResource( 4 )
+flip_v = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="machanicall_small4"]
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="machanicall_small4/StaticBody2D"]
+position = Vector2( -88.3008, 1.88678 )
+polygon = PoolVector2Array( 8.42694, -21.2041, 18.2381, -29.5059, 157.482, -28.3738, 166.538, -24.9777, 169.934, -17.8079, 171.444, -0.0722656, 156.727, 24.4557, 6.91753, 25.5878, 5.78546, -5.7326 )
+
+[node name="machanicall_small3" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 431.528, 217.505 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="machanicall_small3"]
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="machanicall_small3/StaticBody2D"]
+position = Vector2( -88.3008, 1.88678 )
+polygon = PoolVector2Array( -99.7605, -36.2983, -88.0625, -49.5057, 270.046, -46.1095, 279.103, -35.1663, 279.48, -20.4494, 262.499, 10.4936, 245.896, 34.2669, 7.40808, 42.946, -72.9683, 44.4554, -103.157, -16.6759 )
+
+[node name="machanicall_smal1" type="Sprite" parent="."]
+position = Vector2( 431.528, 86.5055 )
+texture = ExtResource( 6 )
+vframes = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="machanicall_smal1"]
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="machanicall_smal1/StaticBody2D"]
+position = Vector2( -88.7641, -10.1588 )
+polygon = PoolVector2Array( 151.336, -19.582, 156.432, 4.97244, 144.85, 27.2104, 35.0494, 27.6737, 25.3203, 0.339523, 29.9532, -21.8985 )
+
+[node name="machanicall_smal2" type="Sprite" parent="."]
+position = Vector2( 601.528, 85.5055 )
+texture = ExtResource( 6 )
+vframes = 3
+frame = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="machanicall_smal2"]
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="machanicall_smal2/StaticBody2D"]
+position = Vector2( -88.3008, 1.88678 )
+polygon = PoolVector2Array( 153.68, -32.9441, 153.217, 29.137, 23.9585, 30.0636, 23.9585, -35.2605 )
+
+[node name="machanicall_smal3" type="Sprite" parent="."]
+position = Vector2( 776.528, 85.5055 )
+texture = ExtResource( 6 )
+vframes = 3
+frame = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="machanicall_smal3"]
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="machanicall_smal3/StaticBody2D"]
+position = Vector2( -88.3008, 1.88678 )
+polygon = PoolVector2Array( 150.832, -34.1416, 150.098, 22.1877, 28.2524, 23.1142, 26.1523, -34.7256 )

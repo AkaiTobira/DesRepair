@@ -1,4 +1,4 @@
-extends Node2D
+extends TileMap
 
 var doors_and_keys = { }
 
@@ -21,4 +21,8 @@ func unlock_doors( key_id ):
 	doors_and_keys[key_id][ "is_open"] = true
 	for door in doors_and_keys[ key_id ]["door"]:
 		door.get_node("AnimationPlayer").play("Open")
+
+func _on_Area2D_body_entered(body):
+	if "player" in body.get_groups():
+		print( "Youe are winner" )
 

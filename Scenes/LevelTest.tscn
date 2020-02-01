@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Platforms.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Scrap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Scrap.gd" type="Script" id=3]
+
+[node name="TileMap" type="TileMap"]
+editor/display_folded = true
+tile_set = ExtResource( 1 )
+collision_use_kinematic = true
+collision_layer = 513
+format = 1
+tile_data = PoolIntArray( -1572823, 1, 0, -1572778, 1, 0, -1245152, 0, 0, -1245140, 0, 0, -983040, 1, 0, -982992, 1, 0, -982989, 0, 0, -982983, 0, 0, -982977, 0, 0, -982976, 0, 0, -982970, 0, 0, -982966, 0, 0, -982961, 0, 0, -982958, 0, 0, -982957, 0, 0, -917504, 1, 0, -917456, 1, 0, -851968, 1, 0, -851937, 0, 0, -851920, 1, 0, -786432, 1, 0, -786429, 1, 0, -786427, 1, 0, -786426, 1, 0, -786425, 1, 0, -786424, 1, 0, -786423, 1, 0, -786415, 1, 0, -786414, 1, 0, -786413, 1, 0, -786412, 1, 0, -786411, 1, 0, -786410, 1, 0, -786409, 1, 0, -786408, 1, 0, -786407, 1, 0, -786406, 1, 0, -786405, 1, 0, -786404, 1, 0, -786403, 1, 0, -786402, 1, 0, -786384, 1, 0, -720896, 1, 0, -720887, 1, 0, -720879, 1, 0, -720848, 1, 0, -655360, 1, 0, -655351, 1, 0, -655343, 1, 0, -655312, 1, 0, -589824, 1, 0, -589815, 1, 0, -589807, 1, 0, -589776, 1, 0, -524288, 1, 0, -524279, 1, 0, -524271, 1, 0, -524250, 0, 0, -524240, 1, 0, -458752, 1, 0, -458743, 1, 0, -458735, 1, 0, -458704, 1, 0, -393216, 1, 0, -393207, 1, 0, -393199, 1, 0, -393168, 1, 0, -327680, 1, 0, -327671, 1, 0, -327663, 1, 0, -327632, 1, 0, -262144, 1, 0, -262098, 1, 0, -262096, 1, 0, -131075, 1, 0, -196608, 1, 0, -196560, 1, 0, -65539, 1, 0, -131038, 1, 0, -131024, 1, 0, -3, 1, 0, -65488, 1, 0, 65533, 1, 0, 27, 1, 0, 48, 1, 0, 131069, 1, 0, 65541, 1, 0, 65544, 1, 0, 65578, 1, 0, 65584, 1, 0, 196605, 1, 0, 131120, 1, 0, 262141, 1, 0, 196632, 1, 0, 196656, 1, 0, 327677, 1, 0, 262144, 0, 0, 262192, 1, 0, 327683, 1, 0, 327686, 0, 0, 327728, 1, 0, 393226, 1, 0, 393228, 0, 0, 393237, 1, 0, 393243, 1, 0, 393249, 1, 0, 393255, 1, 0, 393261, 1, 0, 393264, 1, 0, 458776, 1, 0, 458782, 1, 0, 458788, 1, 0, 458794, 1, 0, 458800, 1, 0 )
+
+[node name="Scrap" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1846.44, -47.5377 )
+script = ExtResource( 3 )
+
+[node name="Scrap2" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2281.39, -163.98 )
+script = ExtResource( 3 )
+
+[node name="Scrap3" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2500.58, -547.556 )
+script = ExtResource( 3 )
+
+[node name="Scrap4" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1644.38, 140.826 )
+script = ExtResource( 3 )
+
+[node name="Scrap5" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1438.89, 332.614 )
+script = ExtResource( 3 )
+
+[node name="Scrap6" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1062.17, 342.888 )
+script = ExtResource( 3 )
+
+[node name="Scrap7" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 589.545, 14.1086 )
+script = ExtResource( 3 )
+
+[node name="Scrap8" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1048.47, -674.273 )
+script = ExtResource( 3 )
+
+[node name="Scrap9" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 808.731, -461.937 )
+script = ExtResource( 3 )
+
+[node name="Scrap10" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2301.94, -890.035 )
+script = ExtResource( 3 )
+
+[node name="Scrap11" type="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 2589.62, 329.189 )
+script = ExtResource( 3 )
+[connection signal="body_entered" from="Scrap" to="Scrap" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap2" to="Scrap2" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap3" to="Scrap3" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap4" to="Scrap4" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap5" to="Scrap5" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap6" to="Scrap6" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap7" to="Scrap7" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap8" to="Scrap8" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap9" to="Scrap9" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap10" to="Scrap10" method="_on_Scrap_body_entered"]
+[connection signal="body_entered" from="Scrap11" to="Scrap11" method="_on_Scrap_body_entered"]

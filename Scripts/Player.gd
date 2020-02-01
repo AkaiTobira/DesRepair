@@ -25,7 +25,7 @@ var grapling_speed          = 1500
 var grapling_direction      = Vector2(0,0)
 var grapling_hit_point      = Vector2(0,0)
 var grampling_cd_timer      = 0
-var grampling_cd            = 1.5
+var grampling_cd            = 0.75
 
 var WALL_HOLDER_ENABLED     = true
 var wall_holding            = false
@@ -36,17 +36,17 @@ func _ready():
 	var tilemap_rect = get_parent().get_node("TileMap").get_used_rect()
 	var tilemap_cell_size = get_parent().get_node("TileMap").cell_size
 	
-	$Camera2D.limit_left = (tilemap_rect.position.x  + 3) * tilemap_cell_size.x
-	$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
-	$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
-	$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
+	#$Camera2D.limit_left = (tilemap_rect.position.x  + 3) * tilemap_cell_size.x
+	#$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
+	#$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
+	#$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
 	
 	current_health = max_health
 	
 
 func OnHit(damage):
 	current_health -= damage
-	healthBar.get_node("healthBar").value  = int((float (current_health) / max_health) * 100)
+	#healthBar.get_node("healthBar").value  = int((float (current_health) / max_health) * 100)
 
 	
 
@@ -67,6 +67,7 @@ func process_targeting_GramplingHook(delta):
 		$Skills/GraplingHook.cast_to              = point 
 		$Skills/GraplingHook/Line2D.points[1]     = point
 		$Skills/GraplingHook/Line2D/Hook.position = point
+		$Skills/GraplingHook/Line2D.visible      = true
 		
 		if grapling_lenght_current == grapling_lenght : 
 			grapling_shooted        = false
@@ -129,8 +130,13 @@ func _wall_holder(delta):
 	if Input.is_action_pressed("wall_hold"):
 		wall_holding = true
 		var distance = 100
-		var close_wall = test_move( get_transform(), Vector2( -distance, 0 ) * delta ) or test_move( get_transform(), Vector2( distance, 0 ) * delta )
-		if not close_wall : 
+		var close_wall_left  = test_move( get_transform(), Vector2( -distance, 0 ) * delta ) 
+		var close_wall_right = test_move( get_transform(), Vector2( distance, 0 ) * delta )
+		
+		if close_wall_left:  play_anim_if_not_played("HoldLeft")
+		if close_wall_right: play_anim_if_not_played("HoldRight")
+		
+		if not (close_wall_left or close_wall_right) : 
 			wall_holding = false
 			once_jumped  = true
 	else: 
