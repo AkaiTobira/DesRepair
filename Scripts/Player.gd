@@ -44,7 +44,7 @@ func _gravity():
 	elif is_on_ceiling():
 		motion.y = 100
 	else:
-		motion.y += GRAVITY
+		motion.y += GRAVITY/2 if grapling_shooted else GRAVITY
 		
 func _endgame():
 	get_tree().change_scene("res://Scenes/EndGame.tscn")
