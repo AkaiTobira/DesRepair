@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/InfoScreen.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 351.818, 226.764 )
+extents = Vector2( 277.985, 226.764 )
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 1 )
@@ -59,4 +59,7 @@ information = "Enabling slide protocole ( press F to slide on wall )"
 [node name="infoScreen5" parent="." instance=ExtResource( 6 )]
 position = Vector2( 3247.91, -599.646 )
 information = "Enabling Fix protocole ( press E to fix  ). WARNING Procedure is power consuming"
+
+[node name="StartPoint" type="Node2D" parent="."]
+position = Vector2( 197.623, -215.552 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

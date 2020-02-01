@@ -1,5 +1,7 @@
 extends TileMap
 
+export var next_level = "sandbox"
+
 var doors_and_keys = { }
 
 func _ready():
@@ -24,5 +26,6 @@ func unlock_doors( key_id ):
 
 func _on_Area2D_body_entered(body):
 	if "player" in body.get_groups():
-		print( "Youe are winner" )
+		call_deferred( "queue_free")
+		get_parent().load_new_world( next_level, $StartPoint.position )
 

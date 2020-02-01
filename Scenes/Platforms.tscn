@@ -87,6 +87,7 @@ position = Vector2( -88.3008, 1.88678 )
 polygon = PoolVector2Array( -99.7605, -36.2983, -88.0625, -49.5057, 270.046, -46.1095, 279.103, -35.1663, 279.48, -20.4494, 262.499, 10.4936, 245.896, 34.2669, 7.40808, 42.946, -72.9683, 44.4554, -103.157, -16.6759 )
 
 [node name="machanicall_smal1" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 431.528, 86.5055 )
 texture = ExtResource( 6 )
 vframes = 3
@@ -100,6 +101,7 @@ position = Vector2( -88.7641, -10.1588 )
 polygon = PoolVector2Array( 151.336, -19.582, 156.432, 4.97244, 144.85, 27.2104, 35.0494, 27.6737, 25.3203, 0.339523, 29.9532, -21.8985 )
 
 [node name="machanicall_smal2" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 601.528, 85.5055 )
 texture = ExtResource( 6 )
 vframes = 3
