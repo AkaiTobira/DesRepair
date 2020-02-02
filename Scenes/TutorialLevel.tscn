@@ -72,4 +72,70 @@ modulate = Color( 0, 1, 0.392157, 0.443137 )
 position = Vector2( 168.765, -754.562 )
 scale = Vector2( 3.01395, 3.19599 )
 texture = ExtResource( 8 )
+
+[node name="Scrap2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1038.54, -622.201 )
+
+[node name="Scrap3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1041.33, -809.097 )
+
+[node name="Scrap4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1256.12, -806.308 )
+
+[node name="Scrap5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1409.54, -803.518 )
+
+[node name="Scrap6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1406.75, -616.622 )
+
+[node name="Scrap7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1627.12, -619.411 )
+
+[node name="Scrap8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1590.86, -792.36 )
+
+[node name="Scrap9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1786.12, -789.571 )
+
+[node name="Scrap10" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1808.44, -619.411 )
+
+[node name="Scrap11" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1984.18, -814.677 )
+
+[node name="Scrap12" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1998.13, -630.569 )
+
+[node name="Scrap13" parent="." instance=ExtResource( 3 )]
+position = Vector2( 876.746, -611.043 )
+
+[node name="Scrap14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 857.219, -800.729 )
+
+[node name="Scrap15" parent="." instance=ExtResource( 3 )]
+position = Vector2( 684.27, -644.517 )
+
+[node name="Scrap16" parent="." instance=ExtResource( 3 )]
+position = Vector2( 681.48, -839.782 )
+
+[node name="Scrap17" parent="." instance=ExtResource( 3 )]
+position = Vector2( 770.744, -714.254 )
+
+[node name="Scrap18" parent="." instance=ExtResource( 3 )]
+position = Vector2( 957.641, -728.202 )
+
+[node name="Scrap19" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1150.12, -725.413 )
+
+[node name="Scrap20" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1328.65, -703.096 )
+
+[node name="Scrap21" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1507.17, -697.518 )
+
+[node name="Scrap22" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1696.86, -708.676 )
+
+[node name="Scrap23" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1917.23, -722.623 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
