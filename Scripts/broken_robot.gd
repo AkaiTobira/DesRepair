@@ -11,6 +11,7 @@ func _ready():
 
 func on_kill(): 
 	player.score += 35
+	player.OnHit(-35 )
 	$Particles2D.emitting = true
 	killed = true
 	$Sprite.visible = false

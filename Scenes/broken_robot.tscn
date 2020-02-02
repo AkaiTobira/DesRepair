@@ -41,6 +41,7 @@ shape = SubResource( 1 )
 
 [node name="Buttons" type="Node2D" parent="."]
 visible = false
+z_index = 2
 
 [node name="Destroy" type="TextureButton" parent="Buttons"]
 self_modulate = Color( 0.513726, 0.027451, 0.027451, 1 )

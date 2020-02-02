@@ -50,6 +50,7 @@ func OnHit(damage):
 
 func activate_GramplingHook():
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) :
+		OnHit( 1.5 )
 		$Skills/GraplingHook/Line2D.visible      = true
 		$Skills/GraplingHook/Line2D/Hook.visible = true
 		var target_point    = get_viewport().get_mouse_position()

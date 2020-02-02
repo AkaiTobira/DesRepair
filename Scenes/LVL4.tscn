@@ -27,6 +27,11 @@ key_id = 2
 position = Vector2( 928, 2912 )
 door_id = 2
 
+[node name="Door2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 4810.54, 831.6 )
+scale = Vector2( 2, 2 )
+door_id = 4
+
 [node name="Scraps" type="Node" parent="."]
 
 [node name="Scrap" parent="Scraps" instance=ExtResource( 4 )]
