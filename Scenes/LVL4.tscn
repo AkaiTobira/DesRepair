@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Platforms.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Key.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Scenes/Scrap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Bgr_forest.png" type="Texture" id=5]
 [ext_resource path="res://Environment/broken_robot.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 119.392, 92.447 )
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 1 )
@@ -68,7 +71,7 @@ position = Vector2( 3880, 1520 )
 position = Vector2( 4424, 1280 )
 
 [node name="Scrap18" parent="Scraps" instance=ExtResource( 4 )]
-position = Vector2( 4896, 1136 )
+position = Vector2( 4896, 1143 )
 
 [node name="Scrap19" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 4968, 2008 )
@@ -137,7 +140,7 @@ position = Vector2( 1592, 3432 )
 position = Vector2( 1144, 3664 )
 
 [node name="Scrap46" parent="Scraps" instance=ExtResource( 4 )]
-position = Vector2( 440, 3848 )
+position = Vector2( 516, 3914.5 )
 
 [node name="Scrap38" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 5720, 2680 )
@@ -185,7 +188,19 @@ position = Vector2( 1056, 472 )
 texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 3301.26, 2132 )
+position = Vector2( 3301.26, 2132.29 )
 scale = Vector2( 3.53618, 2.48952 )
 z_index = -1
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 322.744, 3890.03 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
