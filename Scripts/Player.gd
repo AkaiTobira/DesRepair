@@ -11,7 +11,6 @@ const WORLD_LIMIT = 3000;
 
 var motion = Vector2(0,0)
 
-
 var max_health = 100
 var current_health = 100
 var score = 0
@@ -39,13 +38,19 @@ func _ready():
 
 func OnHit(damage):
 	current_health = min( max( current_health - damage, 0 ), max_health )
-	GUI.get_node("TextureProgress").value     = current_health
+	GUI.get_node("TextureProgress").value     = int(current_health)
 	GUI.get_node("TextureProgress").max_value = max_health
+	GUI.get_node("Label2").text               = str(int(current_health) ) + "/" + str( max_health )
 	if current_health <= 0 : _endgame()
 
 func increase_HP( amount ):
 	max_health += amount
 	OnHit(0)
+	var ap = GUI.get_node( "TextureProgress/AnimationPlayer" )
+	var anim = ap.get_animation( "Increase" )
+	var rec_scale_index = anim.find_track( ".:rect_scale" )
+	anim.track_set_key_value( rec_scale_index, 1, anim.track_get_key_value(rec_scale_index, 1) + Vector2((amount/150.0), 0 ) )
+	ap.play( "Increase" )
 
 func activate_GramplingHook():
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) :
@@ -97,6 +102,7 @@ func process_pull_GramplingHook(delta):
 
 func _process(delta): 
 	GUI.get_node("Label").text = "x " + str(score)
+	OnHit(0.3*delta)
 
 func _grapling_hook(delta):
 	if not GRAPLING_HOOK_ENABLED: return
@@ -179,6 +185,8 @@ func _gravity():
 
 func _endgame():
 	get_tree().change_scene("res://Scenes/EndGame.tscn")
+	GUI.get_node( "TextureProgress" ).rect_scale.x = 0.25
+	
 
 func add_to_score(amount):
 	score += amount

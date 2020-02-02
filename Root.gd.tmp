@@ -36,5 +36,5 @@ func _input(event):
 		get_parent().load_new_world( next_level, $StartPoint.position )
 		call_deferred( "queue_free")
 	if event.is_action_pressed("ui_page_down"):
-		get_parent().get_node("Player").increase_HP( 2 )
+		get_parent().get_node("Player").increase_HP( 100 )
 
