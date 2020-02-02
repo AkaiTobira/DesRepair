@@ -20,7 +20,7 @@ func on_heal():
 
 func _process(delta):
 	if not $Buttons.visible: return
-
+	Music.play_sfx("Spark")
 	if Input.is_action_just_pressed("heal"): on_heal()
 
 func _on_broken_robot_body_entered(body):

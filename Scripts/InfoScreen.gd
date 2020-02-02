@@ -11,6 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func on_kill():
+	Music.play_sfx("Spark")
 	player.score += 10
 	player.OnHit(-10 )
 	$Particles2D.emitting = true
@@ -21,6 +22,7 @@ func on_kill():
 	killed =true
 
 func on_heal():
+	Music.play_sfx("Spark")
 	player.increase_HP( 5 )
 	$Label3.text = information
 	$Buttons.queue_free()

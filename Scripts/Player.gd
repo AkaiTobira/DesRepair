@@ -7,7 +7,7 @@ var UP = Vector2(0,-1)
 
 signal _animate
 
-const WORLD_LIMIT = 3000;
+const WORLD_LIMIT = 6000;
 
 var motion = Vector2(0,0)
 
@@ -54,6 +54,7 @@ func increase_HP( amount ):
 
 func activate_GramplingHook():
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) :
+		Music.play_sfx("Hook1")
 		OnHit( 1.5 )
 		$Skills/GraplingHook/Line2D.visible      = true
 		$Skills/GraplingHook/Line2D/Hook.visible = true
@@ -78,6 +79,7 @@ func process_targeting_GramplingHook(delta):
 			$Skills/GraplingHook/Line2D.visible = false
 
 		if $Skills/GraplingHook.is_colliding() :
+			Music.play_sfx("Catch")
 			$Skills/GraplingHook/Line2D/Hook.visible = false
 			grapling_hit_point =  $Skills/GraplingHook.get_collision_point()
 			grapling_hooked = true
@@ -165,11 +167,14 @@ func _movement():
 
 	if Input.is_action_pressed("ui_left"):
 		play_anim_if_not_played("MoveLeft")
+		Music.play_sfx( "Wheels2" )
 		motion.x = -SPEED
 	elif Input.is_action_pressed("ui_right"):
 		play_anim_if_not_played("MoveRight")
+		Music.play_sfx( "Wheels2" )
 		motion.x = SPEED
 	else:
+		Music.stop_sfx( "Wheels2" )
 		motion.x = 0
 
 func _gravity():
@@ -200,6 +205,7 @@ func heal_cost( premium ):
 		"G" : GRAPLING_HOOK_ENABLED = true
 
 func _hurt():
+	Music.play_sfx("BipBop")
 	position.y -= -1
 	motion.y -= SPEED_JUMP 
 	OnHit(20)
