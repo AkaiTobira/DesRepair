@@ -8,10 +8,10 @@
 [ext_resource path="res://Environment/Terrain/mechanicalTileset.png" type="Texture" id=6]
 [ext_resource path="res://Environment/Terrain/SandDouble.png" type="Texture" id=7]
 [ext_resource path="res://Environment/Terrain/SandTileset.png" type="Texture" id=8]
-[ext_resource path="res://Environment/Spikes/spikes_top.png" type="Texture" id=9]
-[ext_resource path="res://Environment/Spikes/spike_bottom.png" type="Texture" id=10]
-[ext_resource path="res://Environment/Spikes/spikes_bottom.png" type="Texture" id=11]
-[ext_resource path="res://Environment/Spikes/spike_top.png" type="Texture" id=12]
+[ext_resource path="res://Environment/Spikes/desert_spike_top.png" type="Texture" id=9]
+[ext_resource path="res://Environment/Spikes/desert_spike_bottom.png" type="Texture" id=10]
+[ext_resource path="res://Environment/Spikes/desert_spikes_top.png" type="Texture" id=11]
+[ext_resource path="res://Environment/Spikes/desert_spikes_bottom.png" type="Texture" id=12]
 
 [node name="Platforms" type="Node2D"]
 
@@ -201,27 +201,68 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="SandTileset3"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="SandTileset3"]
 collision_layer = 515
 collision_mask = 515
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SandTileset3/StaticBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SandTileset3/StaticBody2D3"]
 position = Vector2( -64, 16 )
 scale = Vector2( 0.695312, 1.13328 )
 polygon = PoolVector2Array( 14.5106, -40.4441, 1.51294, -32.4695, 0.538086, 13.1851, 183.805, 13.5838, 182.18, -32.8682, 170.482, -41.0422 )
 
-[node name="spikes_bottom" type="Sprite" parent="."]
-position = Vector2( 349.774, 458.59 )
+[node name="desert_spikes_bottom" type="Sprite" parent="."]
+position = Vector2( 469.192, 467.558 )
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="desert_spikes_bottom"]
+rotation = 3.14159
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="desert_spikes_bottom/StaticBody2D3"]
+position = Vector2( -64, 16 )
+scale = Vector2( 0.695312, 1.13328 )
+polygon = PoolVector2Array( 45.7548, -37.5398, 25.0097, 8.47656, 92.0323, 9.21088, 159.454, 8.96609, 138.709, -37.0502, 131.927, -37.295 )
+
+[node name="desert_spikes_top" type="Sprite" parent="."]
+position = Vector2( 479.499, 353.786 )
 texture = ExtResource( 11 )
 
-[node name="spikes_top" type="Sprite" parent="."]
-position = Vector2( 350.677, 535.302 )
+[node name="StaticBody2D2" type="StaticBody2D" parent="desert_spikes_top"]
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="desert_spikes_top/StaticBody2D2"]
+position = Vector2( -64, 16 )
+scale = Vector2( 0.695312, 1.13328 )
+polygon = PoolVector2Array( 45.7548, -37.5398, 25.0097, 8.47656, 92.0323, 9.21088, 159.454, 8.96609, 138.709, -37.0502, 131.927, -37.295 )
+
+[node name="desert_spike_bottom" type="Sprite" parent="."]
+position = Vector2( 351.942, 502.333 )
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="desert_spike_bottom"]
+rotation = 3.14159
+collision_layer = 515
+collision_mask = 515
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="desert_spike_bottom/StaticBody2D5"]
+position = Vector2( -64, 16 )
+scale = Vector2( 0.695312, 1.13328 )
+polygon = PoolVector2Array( 89.1674, -51.8652, 57.1759, 23.843, 94.8802, 24.1934, 128.014, 24.1934, 110.305, -24.8766, 97.1653, -51.8652 )
+
+[node name="desert_spike_top" type="Sprite" parent="."]
+position = Vector2( 560.867, 512.34 )
 texture = ExtResource( 9 )
 
-[node name="spike_bottom" type="Sprite" parent="."]
-position = Vector2( 577.204, 511.837 )
-texture = ExtResource( 10 )
+[node name="StaticBody2D4" type="StaticBody2D" parent="desert_spike_top"]
+collision_layer = 515
+collision_mask = 515
 
-[node name="spike_top" type="Sprite" parent="."]
-position = Vector2( 502.296, 380.975 )
-texture = ExtResource( 12 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="desert_spike_top/StaticBody2D4"]
+position = Vector2( -64, 16 )
+scale = Vector2( 0.695312, 1.13328 )
+polygon = PoolVector2Array( 89.1674, -51.8652, 57.1759, 23.843, 94.8802, 24.1934, 128.014, 24.1934, 110.305, -24.8766, 97.1653, -51.8652 )
