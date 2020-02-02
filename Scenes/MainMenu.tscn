@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Environment/bgr_desert.png" type="Texture" id=2]
+[ext_resource path="res://Environment/Button.png" type="Texture" id=3]
+[ext_resource path="res://Environment/Button_Hov.png" type="Texture" id=4]
+[ext_resource path="res://Environment/broken_robot.png" type="Texture" id=5]
+
+[node name="Control" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -11.7452
+margin_top = -8.80896
+margin_right = 1908.25
+margin_bottom = 1071.19
+rect_scale = Vector2( 0.55, 0.57 )
+texture = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -242.5
+margin_top = 136.412
+margin_right = 242.5
+margin_bottom = 393.412
+color = Color( 0.0784314, 0.0745098, 0.0745098, 0.282353 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/ColorRect"]
+margin_left = 45.4545
+margin_top = 24.5614
+margin_right = 435.455
+margin_bottom = 220.561
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="TextureRect/ColorRect/VBoxContainer"]
+margin_right = 390.0
+margin_bottom = 96.0
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect/VBoxContainer/TextureButton"]
+margin_left = 170.077
+margin_top = 36.0807
+margin_right = 240.077
+margin_bottom = 72.0807
+rect_scale = Vector2( 1.61, 1.68 )
+text = "Play
+"
+
+[node name="TextureButton2" type="TextureButton" parent="TextureRect/ColorRect/VBoxContainer"]
+margin_top = 100.0
+margin_right = 390.0
+margin_bottom = 196.0
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="TextureRect/ColorRect/VBoxContainer/TextureButton2"]
+margin_left = 170.077
+margin_top = 36.0807
+margin_right = 240.077
+margin_bottom = 72.0807
+rect_scale = Vector2( 1.61, 1.68 )
+text = "Exit
+"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 425.038
+margin_top = 282.997
+margin_right = 530.038
+margin_bottom = 402.997
+texture = ExtResource( 5 )
+[connection signal="pressed" from="TextureRect/ColorRect/VBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="TextureRect/ColorRect/VBoxContainer/TextureButton2" to="." method="_on_TextureButton2_pressed"]
