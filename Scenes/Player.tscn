@@ -976,7 +976,9 @@ collision_mask = 514
 
 [node name="Line2D" type="Line2D" parent="Skills/GraplingHook"]
 points = PoolVector2Array( 0, 0, 0, 0 )
+width = 32.0
 texture = ExtResource( 3 )
+joint_mode = 1
 
 [node name="Hook" type="Sprite" parent="Skills/GraplingHook/Line2D"]
 position = Vector2( 0, -15 )

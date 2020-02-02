@@ -36,11 +36,6 @@ func _ready():
 	var tilemap_rect = get_parent().get_node("TileMap").get_used_rect()
 	var tilemap_cell_size = get_parent().get_node("TileMap").cell_size
 	OnHit(0)
-	#$Camera2D.limit_left = (tilemap_rect.position.x  + 3) * tilemap_cell_size.x
-	#$Camera2D.limit_right = tilemap_rect.end.x * tilemap_cell_size.x
-	#$Camera2D.limit_top = tilemap_rect.position.y * tilemap_cell_size.y
-	#$Camera2D.limit_bottom = tilemap_rect.end.y * tilemap_cell_size.y
-	
 	current_health = max_health
 	
 
