@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Key.gd" type="Script" id=1]
 [ext_resource path="res://Environment/Terrain/mechanicalInfoKey.png" type="Texture" id=2]
-[ext_resource path="res://Environment/Button_1.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Sparks.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/Button_1.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 99.5596, 75.6021 )
@@ -45,6 +46,15 @@ position = Vector2( -1.43051e-006, -2.38419e-007 )
 texture = ExtResource( 2 )
 hframes = 2
 
+[node name="Particles2D" parent="Sprite" instance=ExtResource( 3 )]
+position = Vector2( -20.5975, -19.2369 )
+scale = Vector2( 0.3, 0.3 )
+lifetime = 5.0
+
+[node name="Particles2D2" parent="Sprite" instance=ExtResource( 3 )]
+position = Vector2( 14.4025, 9.76306 )
+scale = Vector2( 0.3, 0.3 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.44043, -30.39 )
 shape = SubResource( 1 )
@@ -62,7 +72,7 @@ rect_scale = Vector2( 0.1, 0.1 )
 size_flags_horizontal = 0
 disabled = true
 action_mode = 0
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

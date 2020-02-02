@@ -29,4 +29,5 @@ position = Vector2( 80, 32 )
 amount = 20
 lifetime = 2.0
 explosiveness = 1.0
+randomness = 0.34
 process_material = SubResource( 3 )

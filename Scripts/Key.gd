@@ -12,6 +12,9 @@ func on_heal():
 	get_parent().unlock_doors( key_id )
 	player.get_node("Camera2D").zoom = Vector2(2,2)
 	$Sprite.frame += 1
+	
+	$Sprite/Particles2D.emitting = false
+	$Sprite/Particles2D2.emitting = false
 	$Buttons.queue_free()
 	set_process(false)
 
