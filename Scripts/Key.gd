@@ -8,8 +8,10 @@ export var key_id = -1
 
 func on_heal():
 #	player.heal_cost( premium )
+	player.OnHit( 30 )
 	get_parent().unlock_doors( key_id )
 	player.get_node("Camera2D").zoom = Vector2(2,2)
+	$Sprite.frame += 1
 	$Buttons.queue_free()
 	set_process(false)
 
