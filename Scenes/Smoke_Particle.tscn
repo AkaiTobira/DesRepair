@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Environment/poof.png" type="Texture" id=1]
+
+[sub_resource type="Curve" id=1]
+max_value = 100.0
+_data = [ Vector2( 0.0518519, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.962963, 54.6591 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.277273 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+max_value = 1.02
+_data = [ Vector2( 0.125926, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+trail_size_modifier = SubResource( 6 )
+emission_shape = 4
+emission_point_count = 1
+flag_disable_z = true
+gravity = Vector3( 0, -100, 0 )
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 1.0
+damping_curve = SubResource( 2 )
+scale_curve = SubResource( 4 )
+
+[node name="Smoke_Particle" type="Particles2D"]
+position = Vector2( 488, 496 )
+amount = 10
+lifetime = 4.0
+speed_scale = 2.0
+visibility_rect = Rect2( -100, -100, 200, 200 )
+process_material = SubResource( 7 )
+texture = ExtResource( 1 )
