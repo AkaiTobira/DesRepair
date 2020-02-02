@@ -45,14 +45,10 @@ func _ready():
 	
 
 func OnHit(damage):
-	current_health -= damage
+	current_health = min( max( current_health - damage, 0 ), max_health )
 	GUI.get_node("TextureProgress").value = int((float (current_health) / max_health) * 100)
-	#healthBar.get_node("healthBar").value  = int((float (current_health) / max_health) * 100)
-
-	
 
 func activate_GramplingHook():
-	
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) :
 		$Skills/GraplingHook/Line2D.visible      = true
 		$Skills/GraplingHook/Line2D/Hook.visible = true

@@ -1,4 +1,4 @@
 extends Area2D
 
 func _on_SpikeTop_body_entered(body):
-	body._hurt()
+	if "player" in body.get_groups(): body._hurt()

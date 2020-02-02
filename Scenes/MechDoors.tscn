@@ -21,7 +21,7 @@ length = 2.0
 [sub_resource type="Animation" id=5]
 resource_name = "Open"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath("CollisionShape2D2:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -30,10 +30,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -31.5251, 0 ), Vector2( -55.0791, 0 ) ]
+"values": [ Vector2( 98.2989, 2.08098 ), Vector2( 151.766, 3.21858 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite2:position")
+tracks/1/path = NodePath("CollisionShape2D2:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -42,10 +42,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 94.8953, 0 ), Vector2( 58.5168, 0 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite2:scale")
+tracks/2/path = NodePath("CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -54,10 +54,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.152, 1 ) ]
+"values": [ Vector2( -31.9721, 1.32626 ), Vector2( -88.2831, 3.03265 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:scale")
+tracks/3/path = NodePath("CollisionShape2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -66,10 +66,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.152, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/path = NodePath("Sprite:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -78,10 +78,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -31.9721, 1.32626 ), Vector2( -54.9908, 2.08098 ) ]
+"values": [ Vector2( -31.5251, 0 ), Vector2( -87.5518, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("CollisionShape2D:scale")
+tracks/5/path = NodePath("Sprite:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -90,10 +90,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.124583, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("CollisionShape2D2:position")
+tracks/6/path = NodePath("Sprite2:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -102,10 +102,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 98.2989, 2.08098 ), Vector2( 57.8097, 1.46626 ) ]
+"values": [ Vector2( 94.8953, 0 ), Vector2( 151.206, 0 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("CollisionShape2D2:scale")
+tracks/7/path = NodePath("Sprite2:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -114,7 +114,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.120139, 1 ) ]
 }
 
 [node name="Door" type="StaticBody2D" groups=[

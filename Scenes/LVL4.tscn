@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Platforms.tres" type="TileSet" id=1]
-[ext_resource path="res://Scenes/MechDoors.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Scrap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/MechDoors.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Scrap.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2256, 56 )
@@ -19,59 +19,59 @@ tile_data = PoolIntArray( -65538, 7, 0, -65537, 7, 0, -131072, 7, 0, -131071, 7,
 [node name="StartPoint" type="Node2D" parent="."]
 position = Vector2( 96, 120 )
 
-[node name="Key" parent="." instance=ExtResource( 4 )]
+[node name="Key" parent="." instance=ExtResource( 2 )]
 position = Vector2( 5016, 2336 )
 key_id = 2
 
-[node name="Door" parent="." instance=ExtResource( 2 )]
+[node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 928, 2912 )
 door_id = 2
 
 [node name="Scraps" type="Node" parent="."]
 
-[node name="Scrap" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 3176, 2592 )
 
-[node name="Scrap2" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap2" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 1736, 2600 )
 
-[node name="Scrap3" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap3" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 976, 2744 )
 
-[node name="Scrap4" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap4" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 96, 2752 )
 
-[node name="Scrap5" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap5" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 296, 2752 )
 
-[node name="Scrap6" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap6" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 2528, 2600 )
 
-[node name="Scrap7" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap7" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 4992, 2008 )
 
-[node name="Scrap8" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap8" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 4272, 1456 )
 
-[node name="Scrap9" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap9" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 3912, 1456 )
 
-[node name="Scrap10" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap10" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 3504, 1464 )
 
-[node name="Scrap11" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap11" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 3136, 1464 )
 
-[node name="Scrap12" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap12" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 2008, 1392 )
 
-[node name="Scrap13" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap13" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 1472, 1176 )
 
-[node name="Scrap14" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap14" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 4296, 2344 )
 
-[node name="Scrap15" parent="Scraps" instance=ExtResource( 3 )]
+[node name="Scrap15" parent="Scraps" instance=ExtResource( 4 )]
 position = Vector2( 192, 232 )
 
 [node name="KillSpace1" type="Node" parent="."]
