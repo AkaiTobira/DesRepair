@@ -8,6 +8,9 @@
 [ext_resource path="res://Environment/broken_robot.png" type="Texture" id=6]
 [ext_resource path="res://Bgr_forest.png" type="Texture" id=7]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 119.392, 92.447 )
+
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource( 1 )
 collision_layer = 3
@@ -190,7 +193,7 @@ position = Vector2( 1056, 472 )
 texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 3301.26, 2132 )
+position = Vector2( 3301.26, 2132.29 )
 scale = Vector2( 3.53618, 2.48952 )
 z_index = -1
 texture = ExtResource( 7 )
