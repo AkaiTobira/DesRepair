@@ -21,6 +21,7 @@ func on_kill():
 	killed =true
 
 func on_heal():
+	player.increase_HP( 5 )
 	$Label3.text = information
 	$Buttons.queue_free()
 	set_process(false)

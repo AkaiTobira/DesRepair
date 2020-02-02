@@ -17,7 +17,8 @@ func on_kill():
 	$Sprite.visible = false
 
 func on_heal(): 
-	player.heal_cost( premium )
+	player.OnHit( 25 )
+	player.increase_HP( 15 )
 	$Buttons.queue_free()
 	set_process(false)
 

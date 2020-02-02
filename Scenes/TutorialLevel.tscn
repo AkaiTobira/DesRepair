@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scenes/Platforms.tres" type="TileSet" id=1]
 [ext_resource path="res://Root.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Sparks.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Dripping.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Smoke_Particle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Particles/Sparks.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Particles/Dripping.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Particles/Smoke_Particle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Environment/Background/bg_layer1.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Key.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/InfoScreen.tscn" type="PackedScene" id=8]
