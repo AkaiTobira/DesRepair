@@ -7,6 +7,10 @@ var doors_and_keys = { }
 
 func _ready():
 	
+	print( get_parent() )
+	
+	get_parent().get_node("Player").position = $StartPoint.position
+	
 	for child in get_children(): 
 		if "Key" in child.get_groups():
 			if not doors_and_keys.has( child.key_id ): doors_and_keys[ child.key_id ] = {}
@@ -29,4 +33,11 @@ func _on_Area2D_body_entered(body):
 	if "player" in body.get_groups():
 		call_deferred( "queue_free")
 		get_parent().load_new_world( next_level, $StartPoint.position )
+
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		get_parent().load_new_world( next_level, $StartPoint.position )
+		call_deferred( "queue_free")
+	if event.is_action_pressed("ui_page_down"): pass
+		#get_parent().player()
 

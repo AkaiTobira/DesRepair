@@ -31,17 +31,21 @@ var WALL_HOLDER_ENABLED     = true
 var wall_holding            = false
 var once_jumped             = true
 
-
 func _ready():
 	var tilemap_rect = get_parent().get_node("TileMap").get_used_rect()
 	var tilemap_cell_size = get_parent().get_node("TileMap").cell_size
 	OnHit(0)
 	current_health = max_health
-	
 
 func OnHit(damage):
 	current_health = min( max( current_health - damage, 0 ), max_health )
-	GUI.get_node("TextureProgress").value = int((float (current_health) / max_health) * 100)
+	GUI.get_node("TextureProgress").value     = current_health
+	GUI.get_node("TextureProgress").max_value = max_health
+	if current_health <= 0 : _endgame()
+
+func increase_HP( amount ):
+	max_health += amount
+	OnHit(0)
 
 func activate_GramplingHook():
 	if Input.is_mouse_button_pressed(BUTTON_RIGHT) and not ( grapling_shooted or  grapling_hooked) :
@@ -97,9 +101,7 @@ func _process(delta):
 func _grapling_hook(delta):
 	if not GRAPLING_HOOK_ENABLED: return
 	grampling_cd_timer -= delta
-	
 	if grampling_cd_timer > 0 : return
-	
 	activate_GramplingHook()
 	process_targeting_GramplingHook(delta)
 	process_pull_GramplingHook(delta)
@@ -111,7 +113,6 @@ func _physics_process(delta):
 	_grapling_hook(delta)
 	_wall_holder(delta)
 	move_and_slide(motion, UP)
-
 
 func _animate():
 	emit_signal("_animate", motion)
@@ -146,9 +147,9 @@ func _wall_holder(delta):
 
 func _jump():
 	
-	if Input.is_action_pressed("ui_up") and wall_holding and once_jumped:
+	if Input.is_action_pressed("ui_up") and wall_holding: #and once_jumped:
 		motion.y -= SPEED_JUMP * 2
-		once_jumped = false
+	#	once_jumped = false
 	
 	if Input.is_action_pressed("ui_up") and is_on_floor():
 		motion.y -= SPEED_JUMP 

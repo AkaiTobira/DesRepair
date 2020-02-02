@@ -963,8 +963,13 @@ scale = Vector2( 1.5, 1.5 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 2, 2 )
-limit_left = 0
+process_mode = 0
+limit_smoothed = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
 smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Skills" type="Node2D" parent="."]
 

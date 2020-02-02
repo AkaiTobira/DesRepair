@@ -17,6 +17,7 @@
 extents = Vector2( 110.91, 139.194 )
 
 [node name="TileMap" type="TileMap"]
+editor/display_folded = true
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
 collision_use_kinematic = true
@@ -130,7 +131,7 @@ position = Vector2( 4943.18, -731.637 )
 information = "Enabling Fix protocole ( press E to fix  ). WARNING Procedure is power consuming"
 
 [node name="StartPoint" type="Node2D" parent="."]
-position = Vector2( 1271.45, -224.234 )
+position = Vector2( 1304.61, -126.257 )
 
 [node name="broken_robot" parent="." instance=ExtResource( 9 )]
 position = Vector2( 4590.27, -748.593 )
@@ -148,15 +149,13 @@ scale = Vector2( 2, 2 )
 door_id = 0
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( -148, -211 )
+position = Vector2( 134, -914 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 333.307, -690.932 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
 modulate = Color( 1, 1, 1, 0.956863 )
-position = Vector2( 338.766, -704.312 )
 texture = ExtResource( 11 )
 
 [node name="Scrap2" parent="." instance=ExtResource( 12 )]
