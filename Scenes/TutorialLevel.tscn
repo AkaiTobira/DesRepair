@@ -17,7 +17,6 @@
 extents = Vector2( 110.91, 139.194 )
 
 [node name="TileMap" type="TileMap"]
-editor/display_folded = true
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 64 )
 collision_use_kinematic = true
@@ -108,27 +107,27 @@ key_id = 0
 
 [node name="infoScreen" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1719.54, -88.276 )
-information = " Look's like your ship has a crash ...  what's a pity."
+information = "Your ship crashed! You need to collect Scraps to survive..."
 
 [node name="infoScreen6" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1827.43, -804.288 )
-information = "Collect energy cell or destroy objects to regain energy"
+information = "Collect SCRAPS or destroy objects to regain HP"
 
 [node name="infoScreen2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2867.82, -85.085 )
-information = "Enabling jump procedure ( press W to jump )"
+information = "Enabling JUMP procedure (press W)"
 
 [node name="infoScreen3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 5049.51, 39.8397 )
-information = "Enabling hook procedure ( press Right Mouse Button to use Hook )"
+information = "Enabling HOOK - press LEFT MOUSE BUTTON"
 
 [node name="infoScreen4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 6582.27, -152.149 )
-information = "Enabling slide protocole ( hold F or Left Mouse Button o )"
+information = "Enabling SLIDE - press RIGHT MOUSE BUTTON"
 
 [node name="infoScreen5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4943.18, -731.637 )
-information = "Enabling Fix protocole ( press E to fix  ). WARNING Procedure is power consuming"
+information = "Enable CHOOSING process - You can SALVAGE the broken robot or REPAIR it. Salvaging gives You HP, but Repairing extend it"
 
 [node name="StartPoint" type="Node2D" parent="."]
 position = Vector2( 1304.61, -126.257 )
