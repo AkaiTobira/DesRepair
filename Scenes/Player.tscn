@@ -234,7 +234,7 @@ tracks/7/keys = {
 "values": [ Vector2( -11, -74 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "IdleLeft"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Hand:position")
@@ -429,7 +429,7 @@ tracks/15/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "IdleRight"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Hand:position")
@@ -660,7 +660,7 @@ tracks/18/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skills/GraplingHook:position")
 tracks/0/interp = 1
@@ -806,7 +806,7 @@ tracks/11/keys = {
 "values": [ 0.0, -360.0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Torso:flip_h")
 tracks/0/interp = 1
@@ -977,7 +977,6 @@ collision_mask = 514
 [node name="Line2D" type="Line2D" parent="Skills/GraplingHook"]
 points = PoolVector2Array( 0, 0, 0, 0 )
 texture = ExtResource( 3 )
-texture_mode = 1
 
 [node name="Hook" type="Sprite" parent="Skills/GraplingHook/Line2D"]
 position = Vector2( 0, -15 )
@@ -1006,8 +1005,8 @@ texture = ExtResource( 8 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/HoldLeft = SubResource( 2 )
 anims/HoldRight = SubResource( 3 )
-anims/IdleLeft = SubResource( 6 )
-anims/IdleRight = SubResource( 7 )
-anims/MoveLeft = SubResource( 4 )
-anims/MoveRight = SubResource( 5 )
+anims/IdleLeft = SubResource( 4 )
+anims/IdleRight = SubResource( 5 )
+anims/MoveLeft = SubResource( 6 )
+anims/MoveRight = SubResource( 7 )
 [connection signal="_animate" from="." to="PlayerAnimation" method="_on_Player__animate"]

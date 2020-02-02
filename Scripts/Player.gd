@@ -25,7 +25,7 @@ var grapling_speed          = 1500
 var grapling_direction      = Vector2(0,0)
 var grapling_hit_point      = Vector2(0,0)
 var grampling_cd_timer      = 0
-var grampling_cd            = 0.75
+var grampling_cd            = 0.25
 
 var WALL_HOLDER_ENABLED     = true
 var wall_holding            = false
@@ -125,7 +125,7 @@ func _wall_holder(delta):
 	
 	if Input.is_action_just_pressed("wall_hold"): 
 		wall_holding = true
-		once_jumped  = true
+	#	once_jumped  = true
 	
 	if Input.is_action_pressed("wall_hold"):
 		wall_holding = true
@@ -141,12 +141,12 @@ func _wall_holder(delta):
 			if $AnimationPlayer.current_animation == "HoldLeft":  $AnimationPlayer.play("IdleLeft")
 			if $AnimationPlayer.current_animation == "HoldRight": $AnimationPlayer.play("IdleRight")
 			wall_holding = false
-			once_jumped  = true
+		#	once_jumped  = true
 	else: 
 		if $AnimationPlayer.current_animation == "HoldLeft":  $AnimationPlayer.play("IdleLeft")
 		if $AnimationPlayer.current_animation == "HoldRight": $AnimationPlayer.play("IdleRight")
 		wall_holding = false
-		once_jumped = true
+		#once_jumped = true
 
 func _jump():
 	
