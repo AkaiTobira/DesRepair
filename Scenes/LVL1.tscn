@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/LVL1.gd" type="Script" id=1]
 [ext_resource path="res://Environment/bgr_desert.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/TutorialLevel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/PlatformD.tscn" type="PackedScene" id=5]
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,3 +20,7 @@ position = Vector2( 149.663, 178.945 )
 
 [node name="TileMap" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2, 393 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3690.47, 146.653 )
+distance = 500

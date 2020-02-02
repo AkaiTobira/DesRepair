@@ -29,7 +29,7 @@ tracks/0/keys = {
 [node name="MovingPlatform" type="Node2D"]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 175.764, 0 )
+position = Vector2( 175.763, 0 )
 motion/sync_to_physics = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
@@ -43,7 +43,7 @@ texture = ExtResource( 1 )
 curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 175.764, 0 )
+position = Vector2( 175.763, 0 )
 offset = 175.792
 rotate = false
 
