@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Sparks.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Dripping.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Smoke_Particle.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Environment/bgr_desert.png" type="Texture" id=6]
+[ext_resource path="res://Environment/Background/bg_layer1.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Key.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/InfoScreen.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/broken_robot.tscn" type="PackedScene" id=9]
@@ -74,7 +74,7 @@ position = Vector2( 1117.9, 4.84363 )
 z_index = -1
 
 [node name="Smoke_Particle2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2224.49, -324.318 )
+position = Vector2( 2237.5, -275.515 )
 z_index = -1
 speed_scale = 1.99
 explosiveness = 0.31
@@ -88,16 +88,15 @@ explosiveness = 0.31
 randomness = 0.19
 
 [node name="Smoke_Particle4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 4383.56, -366.161 )
+position = Vector2( 4380.31, -144.92 )
 z_index = -1
 speed_scale = 1.99
 explosiveness = 0.31
 randomness = 0.19
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 4512.79, -1860.51 )
-scale = Vector2( 5, 5 )
+position = Vector2( 3816.52, -634.731 )
+scale = Vector2( 3.89894, 0.859924 )
 z_index = -3
 texture = ExtResource( 6 )
 

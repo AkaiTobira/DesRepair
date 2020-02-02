@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Particles2D.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 207.382, 155.258 )
+extents = Vector2( 141.713, 155.258 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "migaj"
