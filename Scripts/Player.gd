@@ -11,7 +11,6 @@ const WORLD_LIMIT = 3000;
 
 var motion = Vector2(0,0)
 
-
 var max_health = 100
 var current_health = 100
 var score = 0
@@ -39,9 +38,9 @@ func _ready():
 
 func OnHit(damage):
 	current_health = min( max( current_health - damage, 0 ), max_health )
-	GUI.get_node("TextureProgress").value     = current_health
+	GUI.get_node("TextureProgress").value     = int(current_health)
 	GUI.get_node("TextureProgress").max_value = max_health
-	GUI.get_node("Label2").text               = str(current_health) + "/" + str( max_health )
+	GUI.get_node("Label2").text               = str(int(current_health) ) + "/" + str( max_health )
 	if current_health <= 0 : _endgame()
 
 func increase_HP( amount ):
@@ -103,6 +102,7 @@ func process_pull_GramplingHook(delta):
 
 func _process(delta): 
 	GUI.get_node("Label").text = "x " + str(score)
+	OnHit(0.3*delta)
 
 func _grapling_hook(delta):
 	if not GRAPLING_HOOK_ENABLED: return
