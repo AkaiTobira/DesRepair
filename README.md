@@ -17,10 +17,11 @@ Game was created during KrakJam 2020.
 DesRepair was created by a team of three "Lunar Patrol". For one of programmer Daniel it was his first experience with game development. Despite lack of experience and troubles with transport, we succeded and created playable prototype. Our purpose was creation of a game where player has to decide if he want to help NPC's or destroy them and convert into a scraps. Most important mechanic in our game is "Graplink Hook" which allows player to travel by created world and avoid dangerous spikes. The topic of Jame ( "Repair" ) is contained in helping NPCs. 
 
 ## Screenshots
-![Alt text](/images/unnamed.png?raw=true "Optional Title")
-![Alt text](/images/unnamed1.png?raw=true "Optional Title")
-![Alt text](/images/unnamed2.png?raw=true "Optional Title")
-![Alt text](/images/unnamed3.png?raw=true "Optional Title")
+![Alt text](/images/zrzut_ekranu_4.png?raw=true "Optional Title")
+![Alt text](/images/zrzut_ekranu_14.png?raw=true "Optional Title")
+![Alt text](/images/zrzut_ekranu_24.png?raw=true "Optional Title")
+![Alt text](/images/zrzut_ekranu_27.png?raw=true "Optional Title")
+![Alt text](/images/zrzut_ekranu_31.png?raw=true "Optional Title")
 
 ## Game Description
 ​Far Far away ...
