@@ -1,7 +1,9 @@
-# Sun vs Cloudator - mobile game
+# DesRepair - platformer game
 
-Sun vs Cloudator is mobile game, created in C# with Unity and prototyped in Godot Engine.
-Game is published on itch.io : https://tempacount.itch.io/starrain2
+DesRepair is platformer game, created in GNative Script in Godot Engine.
+Game was created during KrakJam 2020.
+* Game is published on itch.io : https://tempacount.itch.io/desrepair
+* Game is published on globalgamejam.org : https://globalgamejam.org/2020/games/desrepair-6
 
 ## Table of Contents
 * [General info](#general-info)
@@ -12,7 +14,7 @@ Game is published on itch.io : https://tempacount.itch.io/starrain2
 
 ## General info
 
-Sun vs Cloudator was created as second project during [GameDev School]( https://gds.gamedevschool.pl/ ) course. We worked in four person team and completed it in two months. It was a first project which we had to complete by ourself. During production we create five gameplay mechani prototypes and selected best in our opinion.   
+DesRepair was created by a team of three "Lunar Patrol". For one of programmer Daniel it was his first experience with game development. Despite lack of experience and troubles with transport, we succeded and created playable prototype. Our purpose was creation of a game where player has to decide if he want to help NPC's or destroy them and convert into a scraps. Most important mechanic in our game is "Graplink Hook" which allows player to travel by created world and avoid dangerous spikes. The topic of Jame ( "Repair" ) is contained in helping NPCs. 
 
 ## Screenshots
 ![Alt text](/images/unnamed.png?raw=true "Optional Title")
@@ -21,21 +23,18 @@ Sun vs Cloudator was created as second project during [GameDev School]( https://
 ![Alt text](/images/unnamed3.png?raw=true "Optional Title")
 
 ## Game Description
-This is the endless game which shows us an adventure of a Sunny the Sun who is
-flying across the sky, trying to avoid the clouds which are trying to make bad
-weather and running away from the angry super cloud who’s name is Cloudator. The
-game was inspired by the good warm summer weather which is usually the favorite
-one for most of us. Ironically, nothing lasts forever, so in a game, as a brave sun, we
-are trying to prolong the good mood for everyone as long as we can. And even if
-eventually we fail - the sun will shine on us again!
+​Far Far away ...
+
+A robot crashes on an unknown planet. Alone in dark he needs to survive, equiped only with his grappling hook, he travels acros 3 diferent worlds to collect energy . The only way to survive is by collecting Scraps and Salvaging or Repairing broken robots.​ but remember repairing also cost energy.
 
 ## Project status
 Project is: _closed_
 
-## Credits
+## Credits 
 * Team leader/Programer - Marcin "AkaiTobira" Data
-* Graphics  - Tomasz Wlaźlak & Jakub Wójcik
-* Designers - Tomasz Wlaźlak & Oleksander Kakoshyn
+* Programer - Daniel Kowalewski
+* Graphics  - Karol Baluta
+* Designers - Karol Baluta & Marcin "AkaiTobira" Data
 
 
  
