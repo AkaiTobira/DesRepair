@@ -60,6 +60,9 @@ rect_scale = Vector2( 0.25, 0.5 )
 texture_under = ExtResource( 1 )
 texture_over = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureProgress"]
 anims/Increase = SubResource( 1 )

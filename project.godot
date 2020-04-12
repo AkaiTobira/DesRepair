@@ -27,6 +27,7 @@ Music="*res://Scenes/SoundControler.tscn"
 [display]
 
 window/size/resizable=false
+window/size/borderless=true
 window/size/fullscreen=true
 window/stretch/mode="2d"
 
