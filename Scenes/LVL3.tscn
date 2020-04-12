@@ -22,7 +22,6 @@ script = ExtResource( 2 )
 next_level = "LVL4"
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 2968, -4984 )
 __meta__ = {
 "_edit_group_": true
@@ -32,7 +31,6 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="Scraps" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Scrap" parent="Scraps" instance=ExtResource( 3 )]
 position = Vector2( -53.4997, -2346.3 )
@@ -222,7 +220,6 @@ position = Vector2( 1247.85, 499.354 )
 position = Vector2( 1359.2, -913.203 )
 
 [node name="Spikes" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="SpikeTop" parent="Spikes" instance=ExtResource( 4 )]
 position = Vector2( 416, 152 )
